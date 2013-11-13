@@ -109,7 +109,7 @@ See below for full description of methods to create.
 - `prefered_vendor` - returns the vendor with the highest revenue
 - `prefered_vendor(date)` - returns the vendor with the highest revenue for the given date
 - `worst_vendor` - returns the vendor with the lowest revenue
-- `worst_vendor(date)` - returns the vendor with the lowest revenue by date
+- `worst_vendor(date)` - returns the vendor with the lowest revenue on the given date
 
 
 **Extra Credit Vendor Methods**
