@@ -83,7 +83,10 @@ See below for full description of methods to create.
 - `sales` - returns a collection of `Sale` instances that are associated with market by the `vendor_id` field.
 - `revenue` - returns the the sum of all of the vendor's sales (in cents)
 - `self.by_market(market_it)` - returns all of the vendors with the given `market_id`
-
+- `prefered_vendor` - returns the vendor with the highest revenue
+- `prefered_vendor(date)` - returns the vendor with the highest revenue for the given date
+- `worst_vendor` - returns the vendor with the lowest revenue
+- `worst_vendor(date)` - returns the vendor with the lowest revenue by date
 
 **Additional Product Methods**
 
@@ -113,7 +116,18 @@ See below for full description of methods to create.
 - `self.most_revenue(n)` returns the top n vendor instances ranked by total revenue
 - `self.most_items(n)` returns the top n vendor instances ranked by total number of items sold
 - `self.revenue(date)` returns the total revenue for that date across all vendors
+- `revenue(range_of_dates)` returns the total revenue for that vendor across several dates
 - `revenue(date)` returns the total revenue for that specific purchase date
+
+**Extra Credit Product Methods**
+
+- `self.most_revenue(n)` returns the top n products instances ranked by total revenue
+- `best_day` returns a `Date` object with the most sales for the given product using the `Sale` purchase_time
+
+**Extra Credit Sale Methods**
+
+- `self.best_day` returns a `Date` object with the most sales overall.
+
 
 ### Testing
 
