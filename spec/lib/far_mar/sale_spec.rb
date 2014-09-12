@@ -3,15 +3,15 @@ describe FarMar::Sale do
 
   describe "class methods" do
     it "responds to 'all'" do
-      FarMar::Sale.should respond_to :all
+      expect(FarMar::Sale).to respond_to :all
     end
 
     it "'all' should return" do
-      FarMar::Sale.all.count.should eq 12798
+      expect(FarMar::Sale.all.count).to eq 12798
     end
 
     it "responds to 'find'" do
-      FarMar::Sale.should respond_to :find
+      expect(FarMar::Sale).to respond_to :find
     end
   end
 
@@ -44,17 +44,17 @@ describe FarMar::Sale do
   describe "instance methods" do
     let(:sale) { FarMar::Sale.find(1) }
     it "responds to vendor" do
-      sale.should respond_to :vendor
+      expect(sale).to respond_to :vendor
     end
 
     it "has the vendor" do
-      sale.vendor.id.should eq sale.vendor_id
+      expect(sale.vendor.id).to eq sale.vendor_id
     end
     it "responds to product" do
-      sale.should respond_to :product
+      expect(sale).to respond_to :product
     end
     it "has the product" do
-      sale.product.id.should eq sale.product_id
+      expect(sale.product.id).to eq sale.product_id
     end
 
   end
