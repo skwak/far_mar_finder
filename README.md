@@ -35,7 +35,7 @@ To manage our data classes we will use a file named `/lib/far_mar.rb`
 
     require 'csv'
     require 'time'
-    require_relative 'market'
+    require 'lib/market'
     # ... require all needed classes
 
 Each of the classes you build will be nested under the `FarMar` module.
@@ -47,6 +47,9 @@ module FarMar
   end
 end
 ```
+
+All this nesting does is namespacing. This is different from inheritance, all this is doing is making the classes we make not collide with a class that another gem might use.
+For example `Sale` could easily be defined in many other code bases, but since we namespace is as `FarMar::Sale` it is now more uniquely named.
 
 See below for full description of methods to create.
 
