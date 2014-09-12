@@ -1,8 +1,8 @@
 require 'csv'
 require 'time'
-require_relative 'market'
-# ... Require all of the supporting classes
 
-module FarMar
-  # Your code goes here
-end
+# This file is to require all of our dependencies (each of the classes we make)
+require 'far_mar/market'
+# require 'far_mar/vendor'
+# require 'far_mar/product'
+# require 'far_mar/sale'
