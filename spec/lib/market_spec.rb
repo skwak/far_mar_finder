@@ -1,9 +1,9 @@
 require 'spec_helper'
 describe Market do
   
-  let(:finder) { FarMarFinder.new }
+  let(:finder) { FarMar.new }
   
-  if FarMarFinder.new.respond_to? :markets
+  if FarMar.new.respond_to? :markets
     let(:market_class) { finder.markets }
   else
     let(:market_class) { Market }

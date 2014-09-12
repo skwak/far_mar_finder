@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe FarMarFinder do
-  let(:finder) { FarMarFinder.new }
+describe FarMar do
+  let(:finder) { FarMar.new }
   it "responds to markets" do
     finder.should respond_to :markets
   end

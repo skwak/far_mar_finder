@@ -14,7 +14,7 @@ In this assignment we will be creating an application to look up Farmers Markets
 ------
 
     gem install rspec
-    
+
 ------
 
 **Start building! (but read on for more info)**
@@ -27,7 +27,7 @@ There are several CSV data files:
     /support/products.csv
     /support/vendors.csv
     /support/sales.csv
-    
+
 ### Expectations
 
 Build classes to query the CSV data including objects and methods listed below. Before going too deeply into the methods listed, start by building a system to read the csv files and turn each row of data into an instance of the corresponding ruby class.
@@ -38,14 +38,14 @@ To manage our data classes we will use a file named `/lib/far_mar_finder.rb`
     require 'time'
     require_relative 'market'
     # ... require all needed classes
-    
-    class FarMarFinder
+
+    class FarMar
       # Your Code Here
     end
     
-You will start by creating methods for FarMarFinder to return the class of each of the supporting classes
+You will start by creating methods for FarMar to return the class of each of the supporting classes
 
-    finder = FarMarFinder.new
+    finder = FarMar.new
     finder.markets
      #=> Market
     finder.vendors
@@ -54,13 +54,13 @@ You will start by creating methods for FarMarFinder to return the class of each 
      #=> Product
     finder.sales
      #=> Sale
-     
+
 We will build class methods on the returned class Object
 
-    finder = FarMarFinder.new
+    finder = FarMar.new
     finder.markets.all
      # => [...] Returns all instances of the Market class
-     
+
 See below for full description of methods to create.
 
 ### Assignment
@@ -73,7 +73,7 @@ See below for full description of methods to create.
 - `self.find_all_by_x(match)` - works just like `find_by_x` but returns a collection containing all possible matches. For example `Market.find_by_state("WA")` could return all of the Market object with `"WA"` in their state field.
 
 **Additional Market Methods**
-    
+
 - `vendors` - returns a collection of `Vendor` instances that are associated with the market by the market_id field.
 
 **Additional Vendor Methods**
@@ -135,15 +135,15 @@ See below for full description of methods to create.
 To run our test suite use:
 
     rspec -c
-    
+
 Our test suite will run tests to ensure that *some* of our required methods are implemented correctly.
 
 Note: It will be best to create the basic file for the four supporting classes before running our tests
 
     class Market
-    
+
     end
-    
+
 and requiring them in `/lib/far_mar_finder.rb`.
 
 ## Evaluation
@@ -161,7 +161,7 @@ You will be evaluated on:
 ---------
 
 ## More Info
-    
+
 ### Classes
 
 Our supporting classes will also live in the `/lib` dir.

@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe Vendor do
   
-  let(:finder) { FarMarFinder.new }
+  let(:finder) { FarMar.new }
   
-  if FarMarFinder.new.respond_to? :vendors
+  if FarMar.new.respond_to? :vendors
     let(:vendor_class) { finder.vendors }
   else
     let(:vendor_class) { Vendor }
