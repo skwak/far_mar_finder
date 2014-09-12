@@ -11,10 +11,14 @@ In this assignment we will be creating an application to look up Farmers Markets
 5. Both individuals cd into the dir created `cd far_mar`
 6. Both individuals install needed tools (in Terminal.app)
 
-------
-    gem install rspec
-    gem install simplecov
-------
+```bash
+gem install rspec
+gem install simplecov
+
+# this updates the global settings for rspec to give output in color
+# you only need to do it once, and it won't give you any type of confirmation
+echo --color >> ~/.rspec
+```
 
 **Start building! (but read on for more info)**
 
@@ -22,10 +26,12 @@ In this assignment we will be creating an application to look up Farmers Markets
 
 There are several CSV data files:
 
-    /support/markets.csv
-    /support/products.csv
-    /support/vendors.csv
-    /support/sales.csv
+```
+/support/markets.csv
+/support/products.csv
+/support/vendors.csv
+/support/sales.csv
+```
 
 ### Expectations
 
@@ -33,10 +39,12 @@ Build classes to query the CSV data including objects and methods listed below. 
 
 To manage our data classes we will use a file named `/lib/far_mar.rb`
 
-    require 'csv'
-    require 'time'
-    require 'lib/market'
-    # ... require all needed classes
+```ruby
+require 'csv'
+require 'time'
+require 'lib/market'
+# ... require all needed classes
+```
 
 Each of the classes you build will be nested under the `FarMar` module.
 
