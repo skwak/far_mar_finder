@@ -5,10 +5,10 @@ In this assignment we will be creating an application to look up Farmers Markets
 ### Getting Started
 
 1. Pair up!
-2. The individual closest to the center of the room will fork the repo: [https://github.com/Ada-Developers-Academy/far_mar_finder](https://github.com/Ada-Developers-Academy/far_mar_finder)
+2. The individual closest to the center of the room will fork the repo: [https://github.com/Ada-Developers-Academy/far_mar](https://github.com/Ada-Developers-Academy/far_mar)
 3. Add the second individual as a collaborator
 4. Both individuals will clone the repo `git clone [YOUR FORKED REPO URL]`
-5. Both individuals cd into the dir created `cd far_mar_finder`
+5. Both individuals cd into the dir created `cd far_mar`
 6. Both individuals install rspec (in Terminal.app)
 
 ------
@@ -32,7 +32,7 @@ There are several CSV data files:
 
 Build classes to query the CSV data including objects and methods listed below. Before going too deeply into the methods listed, start by building a system to read the csv files and turn each row of data into an instance of the corresponding ruby class.
 
-To manage our data classes we will use a file named `/lib/far_mar_finder.rb`
+To manage our data classes we will use a file named `/lib/far_mar.rb`
 
     require 'csv'
     require 'time'
@@ -57,8 +57,6 @@ See below for full description of methods to create.
 
 - `self.all` - returns all rows of the CSV file as objects
 - `self.find(id)` - returns the row where the ID field matches the argument
-- `self.find_by_x(match)` - where X is an attribute, returns a single instance whose X attribute case-insensitive attribute matches the match parameter. For instance, Vendor.find_by_name("windler inc") could find a Vendor with the name attribute "windler inc" or "Windler Inc".
-- `self.find_all_by_x(match)` - works just like `find_by_x` but returns a collection containing all possible matches. For example `Market.find_by_state("WA")` could return all of the Market object with `"WA"` in their state field.
 
 **Additional Market Methods**
 
@@ -99,7 +97,6 @@ See below for full description of methods to create.
 - `worst_vendor` - returns the vendor with the lowest revenue
 - `worst_vendor(date)` - returns the vendor with the lowest revenue on the given date
 
-
 **Extra Credit Vendor Methods**
 
 - `self.most_revenue(n)` returns the top n vendor instances ranked by total revenue
@@ -132,7 +129,7 @@ Note: It will be best to create the basic file for the four supporting classes b
 
     end
 
-and requiring them in `/lib/far_mar_finder.rb`.
+and requiring them in `/lib/far_mar.rb`.
 
 ## Evaluation
 
@@ -201,3 +198,8 @@ The Sale data, in order in the CSV, consists of:
 5. Product_id
 
 Each sale belongs to a vendor AND an product, the vendor_id and product_id fields relates to the Vendor and Product ID fields
+
+# Silver
+
+- `self.find_by_x(match)` - where X is an attribute, returns a single instance whose X attribute case-insensitive attribute matches the match parameter. For instance, Vendor.find_by_name("windler inc") could find a Vendor with the name attribute "windler inc" or "Windler Inc".
+- `self.find_all_by_x(match)` - works just like `find_by_x` but returns a collection containing all possible matches. For example `Market.find_by_state("WA")` could return all of the Market object with `"WA"` in their state field.
