@@ -39,27 +39,15 @@ To manage our data classes we will use a file named `/lib/far_mar_finder.rb`
     require_relative 'market'
     # ... require all needed classes
 
-    class FarMar
-      # Your Code Here
-    end
-    
-You will start by creating methods for FarMar to return the class of each of the supporting classes
+Each of the classes you build will be nested under the `FarMar` module.
 
-    finder = FarMar.new
-    finder.markets
-     #=> Market
-    finder.vendors
-     #=> Vendor
-    finder.products
-     #=> Product
-    finder.sales
-     #=> Sale
-
-We will build class methods on the returned class Object
-
-    finder = FarMar.new
-    finder.markets.all
-     # => [...] Returns all instances of the Market class
+```ruby
+module FarMar
+  class Market
+    # Your code goes here
+  end
+end
+```
 
 See below for full description of methods to create.
 
