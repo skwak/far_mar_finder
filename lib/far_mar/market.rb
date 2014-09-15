@@ -1,8 +1,10 @@
 module FarMar
   class Market
 
+    attr_reader :id, :name, :address, :city, :county, :state, :zip
+
     def initialize(row)
-      @id = row[0]
+      @id = row[0].to_i
       @name = row[1]
       @address = row[2]
       @city = row[3]
@@ -17,7 +19,8 @@ module FarMar
     end
 
     def self.find(id)
-      
+      self.all.find { |market| market.id == id}
     end
+
   end
 end
