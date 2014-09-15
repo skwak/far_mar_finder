@@ -6,7 +6,7 @@ module FarMar
     def initialize(row)
       @id = row[0].to_i
       @amount = row[1].to_i
-      @purchse_time = row[2]
+      @purchase_time = row[2]
       @vendor_id = row[3].to_i
       @product_id = row[4].to_i
     end
