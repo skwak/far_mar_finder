@@ -16,8 +16,17 @@ module FarMar
     end
 
     def self.find(id)
-      self.all.find { |vendor| vendor.id == id}
+      self.all.find { |vendor| vendor.id == id }
     end
+
+    def self.by_market(market_id)
+      self.all.find_all { |vendor| vendor if vendor.market_id == market_id }
+    end
+
+    def market
+      FarMar::Market.find(@market_id)
+    end
+
 
   end
 end
