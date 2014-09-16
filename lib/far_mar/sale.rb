@@ -29,6 +29,7 @@ module FarMar
     end
 
     def self.between(beginning_time, end_time)
+      self.all.select { |sale| sale if sale.purchase_time > beginning_time && sale.purchase_time < end_time }.count
     end
 
   end
