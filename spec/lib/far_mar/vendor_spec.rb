@@ -40,6 +40,12 @@ describe FarMar::Vendor do
     it "has the market_id 3" do
       expect(vendor.market_id).to eq 3
     end
+    it "responds to :revenue" do
+      expect(vendor).to respond_to :revenue
+    end
+    it "has a revenue of 32628" do
+      expect(vendor.revenue).to eq 32628
+    end
   end
 
   describe "associations" do
@@ -69,5 +75,7 @@ describe FarMar::Vendor do
       expect(vendor.products.count).to eq 1
     end
   end
+
+
 
 end

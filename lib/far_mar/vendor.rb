@@ -35,5 +35,9 @@ module FarMar
       FarMar::Product.all.find_all {|product| product if product.vendor_id == @id}
     end
 
+    def revenue
+      sales.inject(0) { |sum, sale| sum + sale.amount }
+    end
+
   end
 end
