@@ -39,6 +39,14 @@ describe FarMar::Product do
     it "has the vendor id 5" do
       expect(product.vendor_id).to eq 5
     end
+
+    it "responds to :number_of_sales" do
+      expect(product).to respond_to :number_of_sales
+    end
+
+    it "has 1 number_of_sales" do
+      expect(product.number_of_sales).to eq 1
+    end
   end
 
   describe "associations" do
