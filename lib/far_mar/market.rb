@@ -26,5 +26,9 @@ module FarMar
       FarMar::Vendor.all.find_all {|vendor| vendor if vendor.market_id == @id}
     end
 
+    def products
+      vendors.collect {|vendor| vendor.products}.flatten
+    end
+
   end
 end
