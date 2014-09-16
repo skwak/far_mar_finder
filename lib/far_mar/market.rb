@@ -22,6 +22,12 @@ module FarMar
       self.all.find { |market| market.id == id}
     end
 
+    def self.search(search_term)
+      self.all.select do |market|
+        market.name.downcase.match(search_term) || (market.vendors.find { |vendor| vendor.name.downcase.match(search_term) })
+      end
+    end
+
     def vendors
       FarMar::Vendor.all.find_all {|vendor| vendor if vendor.market_id == @id}
     end
@@ -29,6 +35,5 @@ module FarMar
     def products
       vendors.collect {|vendor| vendor.products}.flatten
     end
-
   end
 end
