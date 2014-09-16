@@ -13,6 +13,14 @@ describe FarMar::Sale do
     it "responds to 'find'" do
       expect(FarMar::Sale).to respond_to :find
     end
+
+    it "responds to 'between'" do
+      expect(FarMar::Sale).to respond_to :between
+    end
+
+    it "'between' should return" do
+      expect(FarMar::Sale.between).to eq
+    end
   end
 
   describe "attributes" do

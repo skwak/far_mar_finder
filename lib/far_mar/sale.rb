@@ -28,6 +28,8 @@ module FarMar
       FarMar::Product.find(@product_id)
     end
 
+    def self.between(beginning_time, end_time)
+    end
 
   end
 end
