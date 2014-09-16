@@ -20,6 +20,14 @@ module FarMar
       self.all.find { |sale| sale.id == id }
     end
 
+    def vendor
+      FarMar::Vendor.find(@vendor_id)
+    end
+
+    def product
+      FarMar::Product.find(@product_id)
+    end
+
 
   end
 end
