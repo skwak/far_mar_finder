@@ -77,8 +77,22 @@ describe FarMar::Vendor do
     it "has 1 products" do
       expect(vendor.products.count).to eq 1
     end
+
+    it "responds to :sales_by_date" do
+      expect(vendor).to respond_to :sales_by_date
+    end
+
+    it "returns 2 sales for 2013-11-10" do
+      date = "2013-11-10"
+      expect(vendor.sales_by_date(date).count).to eq 2
+    end
+
+    it "responds to :sale_purchase_date" do
+      expect(vendor).to respond_to :sale_purchase_date
+    end
+
+    it "changes a purchase time into a purchase date" do
+      expect(vendor.sale_purchase_date(vendor.sales[0]).to_s).to eq "2013-11-07 00:00:00 -0800"
+    end
   end
-
-
-
 end

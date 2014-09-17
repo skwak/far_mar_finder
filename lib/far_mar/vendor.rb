@@ -34,17 +34,23 @@ module FarMar
       FarMar::Product.all.find_all {|product| product if product.vendor_id == @id}
     end
 
-    def revenue(date=nil)
-      if date
-        date_sales = sales.select do |sale|
-                        sale_purchase_date = Time.new(sale.purchase_time.year, sale.purchase_time.month, sale.purchase_time.day)
-                        sale_purchase_date == Time.parse(date)
-                      end
-        date_sales.inject(0) { |sum, sale| sum + sale.amount } 
-      else
-        sales.inject(0) { |sum, sale| sum + sale.amount }
+    def sales_by_date(date)
+      sales.select do |sale|
+        sale_purchase_date(sale) == Time.parse(date)
       end
     end
 
+    def sale_purchase_date(sale)
+      Time.new(sale.purchase_time.year, sale.purchase_time.month, sale.purchase_time.day)
+    end
+
+    def revenue(date=nil)
+      the_sales = if date
+                    sales_by_date(date)
+                  else
+                    sales
+                  end
+      the_sales.inject(0) { |sum, sale| sum + sale.amount }
+    end
   end
 end
