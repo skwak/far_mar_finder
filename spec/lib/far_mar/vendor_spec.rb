@@ -46,6 +46,9 @@ describe FarMar::Vendor do
     it "has a revenue of 32628" do
       expect(vendor.revenue).to eq 32628
     end
+    it "has a revenue of 9333 for 2013-11-09" do
+      expect(vendor.revenue("2013-11-09")).to eq 9333
+    end
   end
 
   describe "associations" do

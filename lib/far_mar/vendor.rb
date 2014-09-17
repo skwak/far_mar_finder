@@ -34,8 +34,16 @@ module FarMar
       FarMar::Product.all.find_all {|product| product if product.vendor_id == @id}
     end
 
-    def revenue
-      sales.inject(0) { |sum, sale| sum + sale.amount }
+    def revenue(date=nil)
+      if date
+        date_sales = sales.select do |sale|
+                        sale_purchase_date = Time.new(sale.purchase_time.year, sale.purchase_time.month, sale.purchase_time.day)
+                        sale_purchase_date == Time.parse(date)
+                      end
+        date_sales.inject(0) { |sum, sale| sum + sale.amount } 
+      else
+        sales.inject(0) { |sum, sale| sum + sale.amount }
+      end
     end
 
   end
