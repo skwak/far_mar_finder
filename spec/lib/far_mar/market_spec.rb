@@ -86,5 +86,13 @@ describe FarMar::Market do
       expect(market.preferred_vendor(date).id).to eq 1
     end
 
+    it "responds to worst_vendor" do
+      expect(FarMar::Market.new({})).to respond_to :worst_vendor
+    end
+
+    it "finds the worst vendor or vendors" do
+      expect(market.worst_vendor[0].id).to eq 6
+    end
+
   end
 end
