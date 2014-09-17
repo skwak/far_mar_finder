@@ -1,6 +1,6 @@
 module FarMar
   class Market
-    @@csv = CSV.read "support/markets.csv"
+    CSV_FILE = CSV.read "support/markets.csv"
     attr_reader :id, :name, :address, :city, :county, :state, :zip
 
     def initialize(row)
@@ -14,7 +14,7 @@ module FarMar
     end
 
     def self.all
-      @@csv.collect { |row| Market.new(row) }
+      CSV_FILE.collect { |row| Market.new(row) }
     end
 
     def self.find(id)

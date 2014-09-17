@@ -1,6 +1,6 @@
 module FarMar
   class Product
-    @@csv = CSV.read "support/products.csv"
+    CSV_FILE = CSV.read "support/products.csv"
     attr_reader :id, :name, :vendor_id
 
     def initialize(row)
