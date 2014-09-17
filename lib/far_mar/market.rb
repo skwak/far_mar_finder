@@ -34,5 +34,10 @@ module FarMar
     def products
       vendors.collect {|vendor| vendor.products}.flatten
     end
+
+    def preferred_vendor
+      vendors.max_by { |vendor| vendor.revenue }
+    end
+
   end
 end
