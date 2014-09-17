@@ -94,5 +94,10 @@ describe FarMar::Market do
       expect(market.worst_vendor[0].id).to eq 6
     end
 
+    it "finds the worst vendors for date" do
+      date = "2013-11-13"
+      expect(market.worst_vendor(date).count).to eq 3
+    end
+
   end
 end
