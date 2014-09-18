@@ -22,6 +22,7 @@ module FarMar
     end
 
     def self.most_revenue(n)
+      self.all.sort_by { |product| product.revenue }.reverse.first(n)
     end
 
     def vendor

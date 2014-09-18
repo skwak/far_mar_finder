@@ -28,7 +28,7 @@ describe FarMar::Product do
     end
 
     it "returns the top n products by total revenue" do
-      expect(FarMar::Product.most_revenue(10).first.id).to eq
+      expect(FarMar::Product.most_revenue(10).first.id).to eq 7848
     end
   end
 
