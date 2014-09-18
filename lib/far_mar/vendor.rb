@@ -49,12 +49,15 @@ module FarMar
     end
 
     def revenue(date=nil)
-      the_sales = if date
-                    sales_by_date(date)
-                  else
-                    sales
-                  end
-      the_sales.inject(0) { |sum, sale| sum + sale.amount }
+      if date
+        sales_by_date(date).inject(0) { |sum, sale| sum + sale.amount }
+      else
+        @total_revenue ||= sales.inject(0) { |sum, sale| sum + sale.amount }
+      end
+    end
+
+    def total_items_sold
+      @total_items_sold ||= sales.count
     end
   end
 end
