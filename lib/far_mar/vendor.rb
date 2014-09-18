@@ -26,6 +26,10 @@ module FarMar
       self.all.sort_by {|vendor| vendor.revenue}.last(n).reverse
     end
 
+    def self.most_items(n)
+      self.all.sort_by {|vendor| vendor.total_items_sold}.last(n).reverse
+    end
+
     def market
       FarMar::Market.find(@market_id)
     end
