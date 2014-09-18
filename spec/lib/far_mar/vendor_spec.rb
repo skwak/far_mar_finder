@@ -28,7 +28,7 @@ describe FarMar::Vendor do
     end
 
     it "find the top n vendors ranked by total revenue" do
-      expect(FarMar::Vendor.most_revenue(10).first.id).to eq
+      expect(FarMar::Vendor.most_revenue(10).first.id).to eq 2590
     end
 
   end
