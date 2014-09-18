@@ -10,7 +10,7 @@ module FarMar
     end
 
     def self.all
-      CSV_FILE.collect { |row| Product.new(row) }
+      @data ||= CSV_FILE.collect { |row| Product.new(row) }
     end
 
     def self.find(id)

@@ -11,7 +11,7 @@ module FarMar
     end
 
     def self.all
-      CSV_FILE.collect { |row| Vendor.new(row) }
+      @data ||= CSV_FILE.collect { |row| Vendor.new(row) }
     end
 
     def self.find(id)
@@ -20,6 +20,9 @@ module FarMar
 
     def self.by_market(market_id)
       self.all.find_all { |vendor| vendor if vendor.market_id == market_id }
+    end
+
+    def self.most_revenue(n)
     end
 
     def market
