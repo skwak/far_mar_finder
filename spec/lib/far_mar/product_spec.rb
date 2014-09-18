@@ -22,6 +22,14 @@ describe FarMar::Product do
     it "find the first product by market 1" do
       expect(FarMar::Product.by_vendor(1).first.name).to eq "Dry Beets"
     end
+
+    it "responds to 'most_revenue'" do
+      expect(FarMar::Product).to respond_to :most_revenue
+    end
+
+    it "returns the top n products by total revenue" do
+      expect(FarMar::Product.most_revenue(10).first.id).to eq
+    end
   end
 
   describe "attributes" do
@@ -46,6 +54,14 @@ describe FarMar::Product do
 
     it "has 1 number_of_sales" do
       expect(product.number_of_sales).to eq 1
+    end
+
+    it "responds to :revenue" do
+      expect(product).to respond_to :revenue
+    end
+
+    it "has the revenue 40126" do
+      expect(FarMar::Product.find(4).revenue).to eq 40126
     end
   end
 

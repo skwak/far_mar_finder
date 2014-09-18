@@ -21,6 +21,9 @@ module FarMar
       self.all.find_all { |product| product.vendor_id == vendor_id }
     end
 
+    def self.most_revenue(n)
+    end
+
     def vendor
       FarMar::Vendor.find(@vendor_id)
     end
@@ -31,6 +34,10 @@ module FarMar
 
     def number_of_sales
       sales.count
+    end
+
+    def revenue
+      @revenue ||= sales.inject(0) { |sum, sale| sum + sale.amount }
     end
 
   end
