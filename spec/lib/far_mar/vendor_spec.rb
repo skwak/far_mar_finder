@@ -35,8 +35,16 @@ describe FarMar::Vendor do
       expect(FarMar::Vendor).to respond_to :most_items
     end
 
-    it "the most items sold for the top vendor is 18" do
-      expect(FarMar::Vendor.most_items(10).first.total_items_sold).to eq 18
+    # it "the most items sold for the top vendor is 18" do
+    #   expect(FarMar::Vendor.most_items(10).first.total_items_sold).to eq 18
+    # end
+
+    it "responds to revenue" do
+      expect(FarMar::Vendor).to respond_to :revenue
+    end
+
+    it "the total revenue for 2013-11-09 is 8667235" do
+      expect(FarMar::Vendor.revenue("2013-11-09")).to eq 8667235
     end
 
   end

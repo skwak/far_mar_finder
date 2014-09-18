@@ -30,6 +30,10 @@ module FarMar
       self.all.sort_by {|vendor| vendor.total_items_sold}.last(n).reverse
     end
 
+    def self.revenue(date)
+      self.all.inject(0) { |sum, vendor| sum + vendor.revenue(date) }
+    end
+
     def market
       FarMar::Market.find(@market_id)
     end
