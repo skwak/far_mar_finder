@@ -28,7 +28,7 @@ module FarMar
     end
 
     def vendors
-      FarMar::Vendor.all.find_all { |vendor| vendor if vendor.market_id == @id }
+      Vendor.by_market(@id)
     end
 
     def products
