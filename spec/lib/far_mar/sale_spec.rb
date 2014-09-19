@@ -21,6 +21,8 @@ describe FarMar::Sale do
     it "'between' should return" do
       expect(FarMar::Sale.between(Time.parse("2013-11-13 08:34:25 -0800"), Time.parse("2013-11-13 08:35:16 -0800"))).to eq 1
     end
+
+    # WRITE A TEST FOR self.by_vendor(vendor_id)
   end
 
   describe "attributes" do

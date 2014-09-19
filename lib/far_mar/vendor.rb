@@ -15,31 +15,31 @@ module FarMar
     end
 
     def self.find(id)
-      self.all.find { |vendor| vendor.id == id }
+      all.find { |vendor| vendor.id == id }
     end
 
     def self.by_market(market_id)
-      self.all.find_all { |vendor| vendor if vendor.market_id == market_id }
+      all.find_all { |vendor| vendor if vendor.market_id == market_id }
     end
 
     def self.most_revenue(n)
-      self.all.sort_by {|vendor| vendor.revenue}.last(n).reverse
+      all.sort_by(&:revenue).last(n).reverse
     end
 
     def self.most_items(n)
-      self.all.sort_by {|vendor| vendor.total_items_sold}.last(n).reverse
+      all.sort_by(&:total_items_sold).last(n).reverse
     end
 
     def self.revenue(date)
-      self.all.inject(0) { |sum, vendor| sum + vendor.revenue(date) }
+      all.collect{ |vendor| vendor.revenue(date) }.reduce :+
     end
 
     def market
-      FarMar::Market.find(@market_id)
+      Market.find(@market_id)
     end
 
     def sales
-      FarMar::Sale.all.find_all {|sale| sale if sale.vendor_id == @id}
+      Sale.by_vendor(@id)
     end
 
     def products
