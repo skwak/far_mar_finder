@@ -22,7 +22,13 @@ describe FarMar::Sale do
       expect(FarMar::Sale.between(Time.parse("2013-11-13 08:34:25 -0800"), Time.parse("2013-11-13 08:35:16 -0800"))).to eq 1
     end
 
-    # WRITE A TEST FOR self.by_vendor(vendor_id)
+    it "responds to by_vendor" do
+      expect(FarMar::Sale).to respond_to :by_vendor
+    end
+
+    it "finds the sales by vendor id" do
+      expect(FarMar::Sale.by_vendor(1).count).to eq 7
+    end
   end
 
   describe "attributes" do

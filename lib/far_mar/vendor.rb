@@ -31,7 +31,7 @@ module FarMar
     end
 
     def self.revenue(date)
-      all.collect{ |vendor| vendor.revenue(date) }.reduce :+
+      all.collect { |vendor| vendor.revenue(date) }.reduce :+
     end
 
     def market
@@ -56,7 +56,7 @@ module FarMar
       Time.new(sale.purchase_time.year, sale.purchase_time.month, sale.purchase_time.day)
     end
 
-    def revenue(date=nil)
+    def revenue(date = nil)
       if date
         # all.collect{ |vendor| vendor.revenue(date) }.reduce :+
         # sales_by_date(date).collect { |sale| sale.amount }.reduce :+

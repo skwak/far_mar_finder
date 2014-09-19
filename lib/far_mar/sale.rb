@@ -16,24 +16,23 @@ module FarMar
     end
 
     def self.find(id)
-      self.all.find { |sale| sale.id == id }
+      all.find { |sale| sale.id == id }
     end
 
     def self.by_vendor(vendor_id)
       all.find_all { |sale| sale if sale.vendor_id == vendor_id }
     end
 
+    def self.between(begin_time, end_time)
+      all.select { |sale| (sale.purchase_time > begin_time) && (sale.purchase_time < end_time) }.count
+    end
+
     def vendor
-      FarMar::Vendor.find(@vendor_id)
+      Vendor.find(@vendor_id)
     end
 
     def product
-      FarMar::Product.find(@product_id)
+      Product.find(@product_id)
     end
-
-    def self.between(beginning_time, end_time)
-      self.all.select { |sale| (sale.purchase_time > beginning_time) && (sale.purchase_time < end_time) }.count
-    end
-
   end
 end
