@@ -43,7 +43,7 @@ module FarMar
     end
 
     def products
-      FarMar::Product.all.find_all {|product| product if product.vendor_id == @id}
+      Product.by_vendor(@id)
     end
 
     def sales_by_date(date)
