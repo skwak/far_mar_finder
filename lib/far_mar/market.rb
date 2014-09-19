@@ -18,13 +18,21 @@ module FarMar
     end
 
     def self.find(id)
-      self.all.find { |market| market.id == id }
+      all.find { |market| market.id == id }
     end
 
     def self.search(search_term)
-      self.all.select do |market|
-        market.name.downcase.match(search_term) || (market.vendors.find { |vendor| vendor.name.downcase.match(search_term) })
+      all.select do |market|
+        market.in_name?(search_term) || market.in_vendor_names?(search_term)
       end
+    end
+
+    def in_name?(search_term)
+      name.downcase.match(search_term)
+    end
+
+    def in_vendor_names?(search_term)
+      vendors.find { |vendor| vendor.name.downcase.match(search_term) }
     end
 
     def vendors

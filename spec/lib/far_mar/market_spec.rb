@@ -57,6 +57,22 @@ describe FarMar::Market do
 
   describe "instance methods" do
     let(:market) { FarMar::Market.find(1) }
+    it "responds to in_name?" do
+      expect(FarMar::Market.new({})).to respond_to :in_name?
+    end
+
+    it "finds a search term in the market name" do
+      expect(market.in_name?("farmer").to_s).to eq "farmer"
+    end
+
+    it "responds to in_vendor_names?" do
+      expect(FarMar::Market.new({})).to respond_to :in_vendor_names?
+    end
+
+    it "finds a search term in the market's vendor names" do
+      expect(market.in_vendor_names?("sons").market_id).to eq 1
+    end
+
     it "responds to vendors" do
       expect(FarMar::Market.new({})).to respond_to :vendors
     end
