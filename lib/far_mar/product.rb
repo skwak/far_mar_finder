@@ -14,24 +14,23 @@ module FarMar
     end
 
     def self.find(id)
-      self.all.find { |product| product.id == id }
+      all.find { |product| product.id == id }
     end
 
     def self.by_vendor(vendor_id)
-      self.all.find_all { |product| product.vendor_id == vendor_id }
+      all.find_all { |product| product.vendor_id == vendor_id }
     end
 
     def self.most_revenue(n)
       all.sort_by(&:revenue).reverse.first(n)
-      # all.sort_by { |product| product.revenue }.reverse.first(n)
     end
 
     def vendor
-      FarMar::Vendor.find(@vendor_id)
+      Vendor.find(@vendor_id)
     end
 
     def sales
-      FarMar::Sale.all.find_all { |sale| sale.product_id == @id }
+      Sale.by_product(@id)
     end
 
     def number_of_sales
@@ -40,6 +39,7 @@ module FarMar
 
     def revenue
       @revenue ||= sales.inject(0) { |sum, sale| sum + sale.amount }
+      # @revenue ||= sales.collect { |sale| sale.amount }.reduce :+
     end
 
   end

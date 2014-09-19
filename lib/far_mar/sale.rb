@@ -23,6 +23,10 @@ module FarMar
       all.find_all { |sale| sale if sale.vendor_id == vendor_id }
     end
 
+    def self.by_product(product_id)
+      all.find_all { |sale| sale if sale.product_id == product_id }
+    end
+
     def self.between(begin_time, end_time)
       all.select { |sale| (sale.purchase_time > begin_time) && (sale.purchase_time < end_time) }.count
     end

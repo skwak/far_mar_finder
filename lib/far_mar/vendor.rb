@@ -58,12 +58,11 @@ module FarMar
 
     def revenue(date = nil)
       if date
-        # all.collect{ |vendor| vendor.revenue(date) }.reduce :+
-        # sales_by_date(date).collect { |sale| sale.amount }.reduce :+
         sales_by_date(date).inject(0) { |sum, sale| sum + sale.amount }
+        # sales_by_date(date).collect(&:amount).reduce :+
       else
-        # @total_revenue ||= sales.collect{ |sale| sale.amount }.reduce :+
         @total_revenue ||= sales.inject(0) { |sum, sale| sum + sale.amount }
+        # @total_revenue ||= sales.collect(&:amount).reduce :+
       end
     end
 
