@@ -40,22 +40,23 @@ module FarMar
     end
 
     def products
-      vendors.collect { |vendor| vendor.products }.flatten
+      vendors.collect(&:products).flatten
     end
 
-    def min_revenue(date=nil)
-      vendors.min_by { |vndr| vndr.revenue(date) }.revenue(date)
+    def min_revenue(date = nil)
+      vendors.min_by { |vendor| vendor.revenue(date) }.revenue(date)
     end
 
-    def preferred_vendor(date=nil)
-      vendors.max_by { |vendor| vendor.revenue(date) }
+    def max_revenue(date = nil)
+      vendors.max_by { |vendor| vendor.revenue(date) }.revenue(date)
     end
 
-    def worst_vendor(date=nil)
+    def preferred_vendor(date = nil)
+      vendors.select { |vendor| vendor.revenue(date) == max_revenue(date) }
+    end
+
+    def worst_vendor(date = nil)
       vendors.select { |vendor| vendor.revenue(date) == min_revenue(date) }
-      # Below only returns one Vendor instance (when there could be multiples)
-      # vendors.min_by { |vendor| vendor.revenue(date) }
     end
-
   end
 end

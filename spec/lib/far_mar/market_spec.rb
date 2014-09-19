@@ -89,17 +89,43 @@ describe FarMar::Market do
       expect(market.products.first.id).to eq 1
     end
 
+    it "responds to min_revenue" do
+      expect(FarMar::Market.new({})).to respond_to :min_revenue
+    end
+
+    it "responds to max_revenue" do
+      expect(FarMar::Market.new({})).to respond_to :max_revenue
+    end
+
+    it "returns a min_revenue" do
+      expect(market.min_revenue).to eq 2977
+    end
+
+    it "returns a max_revenue" do
+      expect(market.max_revenue).to eq 61749
+    end
+
+    it "returns a max_revenue for a date" do
+      date = "2013-11-13"
+      expect(market.max_revenue(date)).to eq 9588
+    end
+
+    it "returns a min_revenue for a date" do
+      date = "2013-11-13"
+      expect(market.min_revenue(date)).to eq 0
+    end
+
     it "responds to preferred_vendor" do
       expect(FarMar::Market.new({})).to respond_to :preferred_vendor
     end
 
     it "finds the preferred vendor" do
-      expect(market.preferred_vendor.id).to eq 5
+      expect(market.preferred_vendor[0].id).to eq 5
     end
 
     it "finds the preferred vendor for date" do
       date = "2013-11-13"
-      expect(market.preferred_vendor(date).id).to eq 1
+      expect(market.preferred_vendor(date)[0].id).to eq 1
     end
 
     it "responds to worst_vendor" do
